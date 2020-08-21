@@ -1,12 +1,19 @@
 <?php
 
+/*
+ * This file is part of the cblink-service/pay.
+ *
+ * (c) Nick <i@xieying.vip>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Tests\Unit;
 
 use Tests\TestCase;
 
 class RefundTest extends TestCase
 {
-
     public function testCreate()
     {
         $response = $this->app->refund->create([
@@ -26,5 +33,4 @@ class RefundTest extends TestCase
 
         $this->assertTrue($response->success());
     }
-
 }

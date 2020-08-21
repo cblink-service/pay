@@ -1,8 +1,14 @@
 <?php
 
+/*
+ * This file is part of the cblink-service/pay.
+ *
+ * (c) Nick <i@xieying.vip>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
 
 namespace Unit;
-
 
 use Symfony\Component\HttpFoundation\Request;
 use Tests\TestCase;
@@ -12,8 +18,7 @@ class NotifyTest extends TestCase
     // 测试通知
     public function testNotify()
     {
-        $this->app->rebind('request', function(){
-
+        $this->app->rebind('request', function () {
             $content = json_encode([
                 "order_id" => 251,
                 "order_no" => "4394ca3ae2d611ea830facde48001122",
@@ -31,12 +36,10 @@ class NotifyTest extends TestCase
             return Request::create('/xxx', 'POST', [], [], [], [], $content);
         });
 
-        $response = $this->app->notifyPaidHandle(function($data){
+        $response = $this->app->notifyPaidHandle(function ($data) {
             return true;
         });
 
-        $this->assertEquals('SUCCESS', $response->getContent());
+        $this->assertSame('SUCCESS', $response->getContent());
     }
-
-
 }

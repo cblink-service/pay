@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the cblink-service/pay.
+ *
+ * (c) Nick <i@xieying.vip>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Tests\Unit;
 
 use Cblink\Service\Payment\PayConst;
@@ -50,4 +58,4 @@ class OrderTest extends TestCase
 
         $this->assertTrue($response->success());
     }
- }
+}

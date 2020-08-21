@@ -28,5 +28,13 @@
         "psr-4": {
             "Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "check-style": [
+            "./vendor/bin/php-cs-fixer fix --using-cache=no --diff --config=.php_cs --dry-run --ansi"
+        ],
+        "fix-style": [
+            "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php_cs --ansi"
+        ]
     }
 }
