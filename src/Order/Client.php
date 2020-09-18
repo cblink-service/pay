@@ -21,6 +21,22 @@ use Ramsey\Uuid\Uuid;
 class Client extends AbstractApi
 {
     /**
+     * 订单列表
+     *
+     * @param int $page
+     * @param int $pageSize
+     * @param array $params
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function lists($page = 1, $pageSize = 15, $params = [])
+    {
+        return $this->get('api/base/order', array_merge([
+            'page' => $page,
+            'page_size' => $pageSize
+        ],$params));
+    }
+
+    /**
      * @param array|OrderDTO $payload
      * @return \Cblink\Service\Kennel\HttpResponse
      */

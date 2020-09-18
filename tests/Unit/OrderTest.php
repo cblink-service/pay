@@ -15,6 +15,14 @@ use Tests\TestCase;
 
 class OrderTest extends TestCase
 {
+
+    public function testLists()
+    {
+        $response = $this->app->order->lists();
+
+        $this->assertTrue($response->success());
+    }
+
     public function testCreate()
     {
         $response = $this->app->order->create([

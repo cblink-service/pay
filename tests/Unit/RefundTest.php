@@ -14,6 +14,13 @@ use Tests\TestCase;
 
 class RefundTest extends TestCase
 {
+    public function testLists()
+    {
+        $response = $this->app->refund->lists();
+
+        $this->assertTrue($response->success());
+    }
+
     public function testCreate()
     {
         $response = $this->app->refund->create([
